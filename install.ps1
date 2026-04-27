@@ -29,7 +29,8 @@ namespace Win32 {
 "@
 }
 
-& $pythonCommand.Source -m pip install --user --no-build-isolation --upgrade $projectRoot
+& $pythonCommand.Source -m pip install --user --upgrade setuptools wheel
+& $pythonCommand.Source -m pip install --user --upgrade $projectRoot
 
 $scriptsDir = (& $pythonCommand.Source -c "import sysconfig; print(sysconfig.get_path('scripts', scheme=sysconfig.get_preferred_scheme('user')))").Trim()
 $userPath = [Environment]::GetEnvironmentVariable("Path", "User")

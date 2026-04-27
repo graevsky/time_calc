@@ -2,7 +2,7 @@
 
 `time_calc` is a cross-platform shell time calculator for Windows, macOS, and Linux.
 
-It works with 24-hour `HHMM` values.
+It works with 24-hour `HHMM` values without `:` and wraps around midnight automatically.
 
 Examples:
 
@@ -43,7 +43,7 @@ Run from PowerShell:
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-The installer uses `python -m pip install --user --no-build-isolation .` and adds the user scripts directory to your `PATH` if needed.
+The installer ensures `setuptools` and `wheel` are available, then runs `python -m pip install --user --upgrade .` and adds the user scripts directory to your `PATH` if needed.
 If `time_calc` is not visible in the current PowerShell session yet, open a new terminal window or run:
 
 ```powershell
@@ -59,7 +59,19 @@ chmod +x ./install.sh
 ./install.sh
 ```
 
-The installer uses `python3 -m pip install --user --no-build-isolation .` and updates shell startup files if needed.
+The installer ensures `setuptools` and `wheel` are available, then runs `python3 -m pip install --user --upgrade .` and updates shell startup files if needed.
+
+### Termux
+
+```sh
+pkg install git python
+git clone https://github.com/graevsky/time_calc.git
+cd time_calc
+chmod +x ./install.sh
+./install.sh
+```
+
+If `time_calc` is not visible immediately, close and reopen Termux.
 
 ## Usage
 

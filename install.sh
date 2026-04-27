@@ -12,7 +12,8 @@ else
   exit 1
 fi
 
-"$PYTHON_BIN" -m pip install --user --no-build-isolation --upgrade "$SCRIPT_DIR"
+"$PYTHON_BIN" -m pip install --user --upgrade setuptools wheel
+"$PYTHON_BIN" -m pip install --user --upgrade "$SCRIPT_DIR"
 
 SCRIPTS_DIR=$("$PYTHON_BIN" -c 'import sysconfig; print(sysconfig.get_path("scripts", scheme=sysconfig.get_preferred_scheme("user")))')
 PATH_LINE="export PATH=\"$SCRIPTS_DIR:\$PATH\""
